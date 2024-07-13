@@ -1,0 +1,9 @@
+export const downloadResume = '/api/resume/download';
+export const experienceSummaryRoute = '/api/about/experienceSummary'
+export const ClientProjectRoute = '/api/client-project'
+export const myProjectRoute = '/api/my-project'
+export const skillRoute = '/api/skill'
+export const jobRoute = '/api/work-experience'
+export const educationRoute = '/api/education'
+export const featuredSkillRoute = '/api/featured-skill'
+export const mailListRoute = '/api/mail-list'
