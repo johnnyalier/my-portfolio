@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { experienceSummaryRoute } from '../utils/apiRoutes'
+import { Alert } from 'flowbite-react'
 
 const AboutPage = () => {
     const [experienceSummary, setExperienceSummary] = useState({})
@@ -23,24 +24,26 @@ const AboutPage = () => {
     },[])
 
     return (
-        <div className='w-[80rem] flex flex-col justify-between items-center pt-5'>
-            <div className='h-full flex flex-row justify-between p-6 gap-10'>
-                <div className='h-full'>
-                    <img className='rounded-3xl min-h-[40rem] min-w-[40rem]' src='/Headshot.jpeg' alt='profile' />
+        <div className='min-h-screen max-w-7xl mx-auto flex flex-col justify-around items-center pt-5'>
+            <div className='mx-4 h-full flex flex-col md:flex-row justify-between p-6 gap-10'>
+                <div className='h-full flex-1'>
+                    <div className='flex justify-center'>
+                        <img className='rounded-xl lg:h-[40rem] object-cover self-center' src='/Headshot.jpeg' alt='profile' />
+                    </div>
                 </div>
-                <div className='flex flex-col pb-10 gap-5'>
+                <div className='flex-1 flex-col pb-10 gap-5'>
                     <h1 className='text-green-600 font-bold text-xl'>About Me</h1>
-                    <h1 className='font-extrabold text-6xl'>
+                    <h1 className='font-extrabold text-xl md:text-3xl pt-6'>
                         I Develop Software Systems that Solve Real World Problems.
                     </h1>
-                    <div className='text-wrap text-justify text-xl'>
-                        <span>I'm a software engineer and graphic designer with a passion for creativity and innovation. </span>
-                        <span>I've been working remotely for the past 5 years, focusing primarily on web development and design. I have a strong background in programming languages, including JavaScript, React, and Node.js, and a strong interest in user experience and interface design. </span>
+                    <div className='text-justify text-md md:text-xl pt-5'>
+                        <span className='text-wrap'>I&rsquo;m a software engineer and graphic designer with a passion for creativity and innovation. </span>
+                        <span className='text-wrap'>I&rsquo;ve been working remotely for the past 5 years, focusing primarily on web development and design. I have a strong background in programming languages, including JavaScript, React, and Node.js, and a strong interest in user experience and interface design. </span>
                         <br />
                         <br />
-                        <span>Outside of work, I play sports (football, chess & various board games) with my friends. I also enjoy evening walk around the block with my family.</span>
+                        <span className='text-wrap'>Outside of work, I play sports (football, chess & various board games) with my friends. I also enjoy evening walk around the block with my family.</span>
                     </div>
-                    <div className='flex justify-between items-start gap-5'>
+                    <div className='flex justify-between items-start gap-5 p-4'>
                         <div className='flex flex-col gap-2'>                            
                             <div className='flex justify-between gap-5'>
                                 <h3 className='font-bold'>Name</h3>
@@ -80,21 +83,24 @@ const AboutPage = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-screen bg-slate-800 flex justify-center items-center'>
-                <div className='w-[80rem] flex flex-row justify-between items-center py-10 px-5'>
-                    <div className='flex gap-4 items-center'>
-                        <h1 className='text-green-600 text-6xl font-bold'>{experienceSummary.duration}+</h1>
-                        <h2 className='text-white text-3xl'>Years of Experience</h2>
+            <div className='w-screen bg-slate-800 flex justify-center items-center mb-5'>
+                <div className='flex flex-row justify-between items-center py-10 px-5 gap-5'>
+                    <div className='flex gap-2 items-center'>
+                        <h1 className='text-green-600 text-3xl md:text-6xl font-bold'>{experienceSummary.duration}+</h1>
+                        <h2 className='text-white text-xl md:text-3xl'>Years of Experience</h2>
                     </div>                
-                    <div className='flex gap-4 items-center'>
-                        <h1 className='text-green-600 text-6xl font-bold'>{experienceSummary.clients}+</h1>
-                        <h2 className='text-white text-3xl'>Clients</h2>
+                    <div className='flex gap-2 items-center'>
+                        <h1 className='text-green-600 text-3xl md:text-6xl font-bold'>{experienceSummary.clients}+</h1>
+                        <h2 className='text-white text-xl md:text-3xl'>Clients</h2>
                     </div>                
-                    <div className='flex gap-4 items-center'>
-                        <h1 className='text-green-600 text-6xl font-bold'>{experienceSummary.projects}+</h1>
-                        <h2 className='text-white text-3xl'>Total Projects</h2>
+                    <div className='flex gap-2 items-center'>
+                        <h1 className='text-green-600 text-3xl md:text-6xl font-bold'>{experienceSummary.projects}+</h1>
+                        <h2 className='text-white text-xl md:text-3xl'>Total Projects</h2>
                     </div>                
                 </div>
+            </div>
+            <div className='flex justify-center items-center'>
+                {errorMessage && <Alert className='mt-5' color='failure'>{errorMessage}</Alert>}
             </div>
         </div>
     )

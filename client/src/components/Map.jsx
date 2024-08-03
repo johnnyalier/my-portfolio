@@ -35,7 +35,7 @@ const Map = () => {
     // }, [])
      
     return (
-        <div className='flex justify-between items-center w-full h-full p-5'>
+        <div className='flex justify-between items-center w-full h-full p-5 rounded-md'>
             <GoogleMapReact 
                 bootstrapURLKeys={{key: import.meta.env.VITE_GOOGLE_MAP_APIKEY}}
                 defaultCenter={{lat: location.lat, lng: location.lng}}

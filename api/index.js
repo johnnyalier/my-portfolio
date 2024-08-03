@@ -26,12 +26,12 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser())
 
-// app.get('/', (req, res) => {
-//     res.json({
-//         status: 200,
-//         message: 'Welcome to my portfolio API!'
-//     });
-// })
+app.get('/api/test', (req, res) => {
+    res.json({
+        status: 404,
+        message: 'Welcome to my portfolio API!'
+    });
+})
 
 app.use("/api/about", aboutRoutes);
 app.use("/api/education", degreeRoutes);
